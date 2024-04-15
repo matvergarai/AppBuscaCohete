@@ -1,24 +1,15 @@
-
+{% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BuscaCohete</title>
     
-    <!-- Bootstrap CSS vía CDN -->
+    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- jQuery vía CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- jQuery Validate vía CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
-
-    <!-- Estilos Locales -->
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">  
 </head>
 <body>
     <div class="container-fluid">
@@ -37,44 +28,16 @@
         </div>
 
         <div class="d-flex justify-content-center logo">
-            <img src="../static/img/rocket.png" alt="Logo" style="max-height: 200px;"/>
+            <img src="{% static 'img/rocket.png' %}" alt="Logo" style="max-height: 200px;"/> 
         </div>
         <div id="container">
-            <img id="image" style="max-height: 100px;" src="../static/img/mono.png" alt="Moving Image">
+            <img id="image" style="max-height: 100px;" src="{% static 'img/mono.png' %}" alt="Moving Image"> 
         </div>
-        
-        <script>
-            document.addEventListener("click", function(event) {
-                var image = document.getElementById("image");
-                var container = document.getElementById("container");
-        
-                // Obtener las coordenadas del clic relativas al contenedor
-                var posX = event.clientX - container.offsetLeft - image.width / 2;
-                var posY = event.clientY - container.offsetTop - image.height / 2;
-        
-                // Calcular la distancia desde la posición actual de la imagen hasta el punto de clic
-                var currentX = parseFloat(image.style.transform.split("(")[1]) || 0;
-                var currentY = parseFloat(image.style.transform.split(",")[1]) || 0;
-                var distanceX = Math.abs(posX - currentX);
-                var distanceY = Math.abs(posY - currentY);
-                var distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-        
-                // Calcular el tiempo necesario para llegar al punto de clic con velocidad constante
-                var speed = 200; // Velocidad constante en píxeles por segundo
-                var time = distance / speed;
-        
-                // Mover la imagen a las coordenadas del clic con una animación CSS
-                image.style.transitionDuration = `${time}s`;
-                image.style.transform = `translate(${posX}px, ${posY}px)`;
-            });
-        </script>
-
 
     </div>
     <!-- Popper.js, Bootstrap JS -->
-    <!-- <script src="{% static 'js/validar_registro.js' %}"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- Scripts locales -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
