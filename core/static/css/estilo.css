@@ -1,0 +1,311 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: #65A4D9; /* Default sky color */
+    transition: background-color 5s ease;
+}
+h1,h2,h3,h4,h5,p{
+    color:white;
+    margin:auto;
+}
+
+.modal-dialog{
+    max-width: 70vw;
+}
+
+.logo{
+    min-height: 90vh;
+}
+/*cerros*/
+.landscape{
+    overflow:hidden;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    bottom: 0px;
+
+}
+.rayos {
+    overflow:hidden;
+    z-index: -1;
+    width: 300%;
+    height: 300%;
+    position: absolute;
+    bottom: -95%;
+    left: -100%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(0, 0, 0, 0) 0deg 15deg,
+        rgba(255, 241, 173, 0.1) 0deg 30deg
+    );
+    animation: rotateBackground 240s linear infinite; /* Rotate every 30 seconds */
+}
+
+@keyframes rotateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.hill {
+    width: 100%;
+    height: 200px;
+
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+}
+
+.hill1 {
+    background: rgb(136,159,100);
+    background: linear-gradient(180deg, rgba(136,159,100,1) 0%, rgba(41,108,90,1) 78%);
+    left: -400px;
+    bottom: -100px;
+    height: 550px;
+    width: 1000px;
+}
+
+.hill2 {
+background: rgb(99,54,40);
+background: linear-gradient(0deg, rgba(99,54,40,1) 0%, rgba(128,103,77,1) 78%);
+    left: 150px;
+    bottom: -500px;
+    height: 800px;
+    width: 1500px;
+    transform: scale(1.2); /* Aumentar el tamaño de esta colina */
+}
+
+.hill3 {
+background: rgb(36,88,79);
+background: linear-gradient(0deg, rgba(36,88,79,1) 0%, rgba(98,134,100,1) 78%);
+    right: -800px;
+    transform: scale(0.8); /* Reducir el tamaño de esta colina */
+    height: 780px;
+    width: 1900px;
+    bottom: -500px;
+}
+/*fin cerros*/
+
+/*Time to finalise the cloud shape*/
+#clouds{
+    position: absolute;
+    top: 300px;
+    width: 100vw;
+
+}
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	opacity:0.4;
+
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+
+	position: relative;
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute;
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+/*Time to animate*/
+.x1 {
+	-webkit-animation: moveclouds 45s linear infinite;
+	-moz-animation: moveclouds 45s linear infinite;
+	-o-animation: moveclouds 45s linear infinite;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+	left: 200px;
+
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; /*opacity proportional to the size*/
+
+	/*Speed will also be proportional to the size and opacity*/
+	/*More the speed. Less the time in 's' = seconds*/
+	-webkit-animation: moveclouds 55s linear infinite;
+	-moz-animation: moveclouds 55s linear infinite;
+	-o-animation: moveclouds 55s linear infinite;
+}
+
+.x3 {
+	left: -250px; top: -200px;
+
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+
+	-webkit-animation: moveclouds 50s linear infinite;
+	-moz-animation: moveclouds 50s linear infinite;
+	-o-animation: moveclouds 50s linear infinite;
+}
+
+.x4 {
+	left: 470px; top: -250px;
+
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+
+	-webkit-animation: moveclouds 48s linear infinite;
+	-moz-animation: moveclouds 48s linear infinite;
+	-o-animation: moveclouds 48s linear infinite;
+}
+
+.x5 {
+	left: -150px; top: -150px;
+
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+
+	-webkit-animation: moveclouds 50s linear infinite;
+	-moz-animation: moveclouds 50s linear infinite;
+	-o-animation: moveclouds 50s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+	0% {margin-left: 100%;}
+	100% {margin-left: 0%;}
+}
+@-moz-keyframes moveclouds {
+	0% {margin-left: 100%;}
+	100% {margin-left: 0%;}
+}
+@-o-keyframes moveclouds {
+	0% {margin-left: 100%;}
+	100% {margin-left: 0;}
+}
+
+
+.container-fluid{
+    position:fixed;
+    padding: 0;
+    height: 100%;
+    justify-content: center; /* Horizontal alignment */
+    align-items: center; /* Vertical alignment */
+    overflow: hidden;
+}
+.fade-out{
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.btn-rosa{
+    color: rgb(252, 5, 101);
+    border-color: rgb(252, 5, 101);
+    margin-left:10px;
+    background: transparent;
+}
+.btn-rosa:hover{
+    background: rgb(252, 5, 101);
+    color:black;
+    border-color: rgb(252, 5, 101);
+}
+.btn-rosa-solid{
+    background: rgb(252, 5, 101);
+    color:black;
+    border-color: rgb(252, 5, 101);
+}
+.btn-rosa-solid:hover{
+    color: rgb(252, 5, 101);
+    border-color: rgb(252, 5, 101);
+    margin-left:10px;
+    background: transparent;
+}
+
+
+.btn-verde{
+    color: rgb(5, 252, 102);
+    border-color: rgb(5, 252, 102);
+    background: transparent;
+}
+.btn-verde:hover {
+    background: rgb(5,252,102);
+    color:black;
+    border-color: rgb(5, 252, 102);
+}
+.btn-verde-solid{
+    background: rgb(5,252,102);
+    color:black;
+    border-color: rgb(5, 252, 102);
+}
+.btn-verde-solid:hover{
+    color: rgb(5, 252, 102);
+    border-color: rgb(5, 252, 102);
+    background: transparent;
+}
+.modal-backdrop{
+    visibility:hidden;
+}
+.modal-dialog{
+    padding-top: 10%;
+    margin:auto;
+    max-width: 400px;
+}
+.modal-content{
+    background: rgba(19, 19, 19, 0.5);
+    backdrop-filter: blur(10px); /* Ajusta el valor según la cantidad de desenfoque deseada */
+    -webkit-backdrop-filter: blur(10px); /* Para navegadores basados en WebKit (como Safari) */
+}
+.modal-header{
+    border-bottom: 1px solid #383838;
+}
+.modal-footer{
+    border-top: 1px solid #383838;
+}
+.modal-title{
+    color:white;
+}
+.navbar{
+    z-index: 3;
+    padding-bottom: 15px;
+}
+.footer{
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    min-width: 100%;
+    font-size: 12px;
+}
+.link-menu {
+    color: white;
+    transition: transform 0.3s; /* Agrega la transición solo a la transformación */
+    display: inline-block; /* Para que se pueda aplicar la transformación */
+}
+
+.link-menu:hover {
+    transform: scale(1.2); /* Cambia la escala al pasar el cursor por encima (ajusta según tus preferencias) */
+}
