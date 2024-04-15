@@ -42,7 +42,7 @@ class Sesion(models.Model):
 class Visita(models.Model):
     idVisita = models.IntegerField(primary_key=True)
     tituloPagina = models.CharField(max_length=500, null=True)
-    url = models.CharField(max_length=4000)  # Virtual field, not stored in database
+    url = models.CharField(max_length=4000)
     idSesion = models.ForeignKey(Sesion, on_delete=models.CASCADE)
     fechaVisita = models.DateTimeField()
     bloqueado = models.BooleanField()
